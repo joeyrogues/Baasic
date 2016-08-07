@@ -2,4 +2,6 @@
   "plural": "users"
 }, {
   "plural": "posts"
+}, {
+  "plural": "reports"
 }]
