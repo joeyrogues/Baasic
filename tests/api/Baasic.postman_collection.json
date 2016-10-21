@@ -1,0 +1,363 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Baasic",
+		"_postman_id": "97956357-b2b2-2a7e-ef8a-50ca52baf507",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "reports",
+			"description": "",
+			"item": [
+				{
+					"name": "GET localhost:8000/reports",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/reports",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST localhost:8000/reports",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "var jsonData = JSON.parse(responseBody)\npostman.setEnvironmentVariable(\"id\", jsonData._id)\n\ntests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/reports",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"isActive\": true,\n  \"balance\": \"$2,918.02\",\n  \"picture\": \"http://placehold.it/32x32\",\n  \"age\": 36,\n  \"eyeColor\": \"green\",\n  \"name\": \"Gardner Brock\",\n  \"gender\": \"male\",\n  \"company\": \"DOGNOST\",\n  \"email\": \"gardnerbrock@dognost.com\",\n  \"phone\": \"+1 (811) 560-3678\",\n  \"address\": \"358 Revere Place, Kenmar, Nebraska, 8866\",\n  \"about\": \"Dolor labore elit commodo consequat duis aute fugiat. Officia nostrud incididunt culpa aute ullamco laborum incididunt mollit anim. Adipisicing proident ut ipsum non ad quis labore incididunt enim nostrud aliqua. Officia pariatur in amet amet in elit officia. Occaecat reprehenderit mollit ut nulla culpa nulla mollit.\\r\\n\",\n  \"registered\": \"2015-10-10T11:47:19 -02:00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET localhost:8000/reports/{{id}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/reports/{{id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST localhost:8000/reports/{{id}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "var jsonData = JSON.parse(responseBody)\npostman.setEnvironmentVariable(\"id\", jsonData._id)\n\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Age has changed from 36 to 37\"] = jsonData.age === 37"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/reports/{{id}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"{{id}}\",\n\t\"_type\": \"reports\",\n\t\"isActive\": true,\n\t\"balance\": \"$2,918.02\",\n\t\"picture\": \"http://placehold.it/32x32\",\n\t\"age\": 37,\n\t\"eyeColor\": \"green\",\n\t\"name\": \"Gardner Brock\",\n\t\"gender\": \"male\",\n\t\"company\": \"DOGNOST\",\n\t\"email\": \"gardnerbrock@dognost.com\",\n\t\"phone\": \"+1 (811) 560-3678\",\n\t\"address\": \"358 Revere Place, Kenmar, Nebraska, 8866\",\n\t\"about\": \"Dolor labore elit commodo consequat duis aute fugiat. Officia nostrud incididunt culpa aute ullamco laborum incididunt mollit anim. Adipisicing proident ut ipsum non ad quis labore incididunt enim nostrud aliqua. Officia pariatur in amet amet in elit officia. Occaecat reprehenderit mollit ut nulla culpa nulla mollit.\\r\\n\",\n\t\"registered\": \"2015-10-10T11:47:19 -02:00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE localhost:8000/reports/{{id}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/reports/{{id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"description": "",
+			"item": [
+				{
+					"name": "GET localhost:8000/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST localhost:8000/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "var jsonData = JSON.parse(responseBody)\npostman.setEnvironmentVariable(\"id\", jsonData._id)\n\ntests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"isActive\": true,\n  \"balance\": \"$2,918.02\",\n  \"picture\": \"http://placehold.it/32x32\",\n  \"age\": 36,\n  \"eyeColor\": \"green\",\n  \"name\": \"Gardner Brock\",\n  \"gender\": \"male\",\n  \"company\": \"DOGNOST\",\n  \"email\": \"gardnerbrock@dognost.com\",\n  \"phone\": \"+1 (811) 560-3678\",\n  \"address\": \"358 Revere Place, Kenmar, Nebraska, 8866\",\n  \"about\": \"Dolor labore elit commodo consequat duis aute fugiat. Officia nostrud incididunt culpa aute ullamco laborum incididunt mollit anim. Adipisicing proident ut ipsum non ad quis labore incididunt enim nostrud aliqua. Officia pariatur in amet amet in elit officia. Occaecat reprehenderit mollit ut nulla culpa nulla mollit.\\r\\n\",\n  \"registered\": \"2015-10-10T11:47:19 -02:00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET localhost:8000/users/{{id}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/users/{{id}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST localhost:8000/users/{{id}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "var jsonData = JSON.parse(responseBody)\npostman.setEnvironmentVariable(\"id\", jsonData._id)\n\ntests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Age has changed from 36 to 37\"] = jsonData.age === 37"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/users/{{id}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"{{id}}\",\n\t\"_type\": \"users\",\n\t\"isActive\": true,\n\t\"balance\": \"$2,918.02\",\n\t\"picture\": \"http://placehold.it/32x32\",\n\t\"age\": 37,\n\t\"eyeColor\": \"green\",\n\t\"name\": \"Gardner Brock\",\n\t\"gender\": \"male\",\n\t\"company\": \"DOGNOST\",\n\t\"email\": \"gardnerbrock@dognost.com\",\n\t\"phone\": \"+1 (811) 560-3678\",\n\t\"address\": \"358 Revere Place, Kenmar, Nebraska, 8866\",\n\t\"about\": \"Dolor labore elit commodo consequat duis aute fugiat. Officia nostrud incididunt culpa aute ullamco laborum incididunt mollit anim. Adipisicing proident ut ipsum non ad quis labore incididunt enim nostrud aliqua. Officia pariatur in amet amet in elit officia. Occaecat reprehenderit mollit ut nulla culpa nulla mollit.\\r\\n\",\n\t\"registered\": \"2015-10-10T11:47:19 -02:00\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE localhost:8000/users/{{id}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "localhost:8000/users/{{id}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer awesome",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
