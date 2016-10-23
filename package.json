@@ -13,6 +13,7 @@
     "hapi": "^13.5.0",
     "hapi-auth-bearer-simple": "^5.0.4",
     "hapi-cors": "^1.0.1",
+    "ml-knn": "^1.0.0",
     "nosql": "^4.1.0"
   }
 }
